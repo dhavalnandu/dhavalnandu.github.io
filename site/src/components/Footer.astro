@@ -1,0 +1,35 @@
+---
+import { EMAIL, LINKEDIN_URL, SITE_TITLE } from '../consts';
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="site-logo">{SITE_TITLE}</a>
+        <p>Senior SAP Technical Consultant specializing in ABAP, S/4HANA, RAP, CDS, and AMDP. Building enterprise solutions for 12+ years.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/projects/">Projects</a></li>
+          <li><a href="/connect/">Connect</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href={`mailto:${EMAIL}`}>Email</a></li>
+          <li><a href="https://github.com/dhavalnandu" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; {new Date().getFullYear()} {SITE_TITLE}. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

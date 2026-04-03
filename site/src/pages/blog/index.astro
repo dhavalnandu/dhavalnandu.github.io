@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const allTags = [...new Set(allPosts.flatMap((p) => p.data.tags))].sort();
+---
+
+<BaseLayout title="Blog" description="Technical articles on SAP ABAP, RAP, CDS, AMDP, S/4HANA, and performance optimization.">
+  <Header />
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Blog</h1>
+      <p>Technical insights from the SAP ABAP and S/4HANA world.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="filter-bar">
+        <input type="text" id="search" placeholder="Search articles..." aria-label="Search articles" />
+      </div>
+      <div class="filter-tags" id="filterTags">
+        <button class="filter-tag active" data-tag="">All</button>
+        {allTags.map((tag) => (
+          <button class="filter-tag" data-tag={tag}>{tag}</button>
+        ))}
+      </div>
+
+      <div class="blog-grid" id="blogGrid" style="margin-top: 32px;">
+        {allPosts.map((post) => (
+          <a href={`/blog/${post.slug}/`} class="blog-card" data-tags={post.data.tags.join(',')} data-title={post.data.title.toLowerCase()}>
+            <div class="blog-card-meta">
+              <time datetime={post.data.date.toISOString()}>
+                {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </time>
+            </div>
+            <h3>{post.data.title}</h3>
+            <p class="blog-card-excerpt">{post.data.description}</p>
+            <div class="blog-card-tags">
+              {post.data.tags.map((tag) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<script is:inline>
+  const searchInput = document.getElementById('search');
+  const filterTags = document.getElementById('filterTags');
+  const blogGrid = document.getElementById('blogGrid');
+  const cards = blogGrid.querySelectorAll('.blog-card');
+  let activeTag = '';
+
+  function filterPosts() {
+    const query = searchInput.value.toLowerCase();
+    cards.forEach((card) => {
+      const title = card.getAttribute('data-title') || '';
+      const tags = card.getAttribute('data-tags') || '';
+      const matchesSearch = title.includes(query);
+      const matchesTag = !activeTag || tags.includes(activeTag);
+      card.style.display = matchesSearch && matchesTag ? '' : 'none';
+    });
+  }
+
+  searchInput.addEventListener('input', filterPosts);
+
+  filterTags.addEventListener('click', (e) => {
+    const btn = e.target.closest('.filter-tag');
+    if (!btn) return;
+    filterTags.querySelectorAll('.filter-tag').forEach((t) => t.classList.remove('active'));
+    btn.classList.add('active');
+    activeTag = btn.getAttribute('data-tag') || '';
+    filterPosts();
+  });
+</script>

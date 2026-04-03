@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog – Dhaval Nandu | SAP Technical Insights</title>
+  <meta name="description" content="Technical blog posts about SAP ABAP, S/4HANA, RAP, CDS, AMDP, and performance optimization by Dhaval Nandu.">
+  <meta name="author" content="Dhaval Nandu">
+  <link rel="canonical" href="https://dhavalnandu.github.io/blog/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="/" class="header__logo">D<span>.</span>Nandu</a>
+      <button class="header__menu-btn" aria-label="Toggle navigation" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav__list" id="nav-list">
+          <li><a href="/" class="nav__link">Home</a></li>
+          <li><a href="/about/" class="nav__link">About</a></li>
+          <li><a href="/blog/" class="nav__link nav__link--active">Blog</a></li>
+          <li><a href="/projects/" class="nav__link">Projects</a></li>
+          <li><a href="/connect/" class="nav__link">Connect</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container container--narrow">
+      <div class="page-header">
+        <h1 class="page-header__title">Blog</h1>
+        <p class="page-header__desc">Technical insights on SAP development, S/4HANA, and modern ABAP.</p>
+      </div>
+
+      <div class="search-bar">
+        <svg class="search-bar__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
+        <input type="search" id="blog-search" class="search-bar__input" placeholder="Search posts..." aria-label="Search blog posts">
+      </div>
+
+      <div class="filter-tags" id="filter-tags"></div>
+
+      <div id="blog-list" class="card-grid">
+        <p class="text-muted text-center">Loading posts...</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__text">&copy; 2026 Dhaval Nandu. Built with clean HTML &amp; CSS.</p>
+      <ul class="footer__links">
+        <li><a href="https://in.linkedin.com/dhaval-nandu" class="footer__link" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/dhavalnandu" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="/connect/" class="footer__link">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.querySelector('.header__menu-btn');
+    const navList = document.getElementById('nav-list');
+    if (menuBtn && navList) {
+      menuBtn.addEventListener('click', () => {
+        const isOpen = navList.classList.toggle('nav__list--open');
+        menuBtn.setAttribute('aria-expanded', isOpen);
+      });
+      navList.querySelectorAll('.nav__link').forEach(link => {
+        link.addEventListener('click', () => {
+          navList.classList.remove('nav__list--open');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  </script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

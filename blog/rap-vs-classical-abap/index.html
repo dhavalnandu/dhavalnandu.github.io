@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAP vs Classical ABAP – Practical Comparison | Dhaval Nandu</title>
+  <meta name="description" content="A hands-on comparison of the RESTful Application Programming Model versus classical ABAP development, covering when and why to use each approach.">
+  <meta name="author" content="Dhaval Nandu">
+  <link rel="canonical" href="https://dhavalnandu.github.io/blog/rap-vs-classical-abap/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="/" class="header__logo">D<span>.</span>Nandu</a>
+      <button class="header__menu-btn" aria-label="Toggle navigation" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav__list" id="nav-list">
+          <li><a href="/" class="nav__link">Home</a></li>
+          <li><a href="/about/" class="nav__link">About</a></li>
+          <li><a href="/blog/" class="nav__link nav__link--active">Blog</a></li>
+          <li><a href="/projects/" class="nav__link">Projects</a></li>
+          <li><a href="/connect/" class="nav__link">Connect</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container container--narrow">
+      <div class="page-header">
+        <h1 class="page-header__title" id="post-title">RAP vs Classical ABAP – Practical Comparison</h1>
+        <div class="blog-post__meta" id="post-meta">
+          <time datetime="2026-03-15">March 15, 2026</time>
+          <div class="tags">
+            <span class="tag tag--accent">SAP</span>
+            <span class="tag tag--accent">ABAP</span>
+            <span class="tag tag--accent">RAP</span>
+            <span class="tag tag--accent">S4HANA</span>
+          </div>
+        </div>
+        <a href="/blog/" class="btn btn--outline btn--sm">&larr; Back to Blog</a>
+      </div>
+      <article class="blog-post__content" id="post-content"></article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__text">&copy; 2026 Dhaval Nandu. Built with clean HTML &amp; CSS.</p>
+      <ul class="footer__links">
+        <li><a href="https://in.linkedin.com/dhaval-nandu" class="footer__link" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/dhavalnandu" class="footer__link" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="/connect/" class="footer__link">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.querySelector('.header__menu-btn');
+    const navList = document.getElementById('nav-list');
+    if (menuBtn && navList) {
+      menuBtn.addEventListener('click', () => {
+        const isOpen = navList.classList.toggle('nav__list--open');
+        menuBtn.setAttribute('aria-expanded', isOpen);
+      });
+      navList.querySelectorAll('.nav__link').forEach(link => {
+        link.addEventListener('click', () => {
+          navList.classList.remove('nav__list--open');
+          menuBtn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  </script>
+  <script src="/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', loadBlogPost);
+  </script>
+</body>
+</html>

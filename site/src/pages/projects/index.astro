@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const projects = [
+  {
+    name: 'International Supply Chain Platform (INTLSCP)',
+    client: 'Global Manufacturing Client',
+    role: 'Team Lead',
+    tech: ['RAP', 'CDS', 'OData', 'ABAP', 'S/4HANA'],
+    contributions: [
+      'Led end-to-end technical delivery for global supply chain platform',
+      'Designed RAP-based OData services for real-time inventory and logistics',
+      'Built complex CDS views with aggregations and metadata extensions',
+      'Coordinated cross-functional team across multiple time zones',
+      'Established code review standards and mentoring program',
+    ],
+  },
+  {
+    name: 'S/4HANA Upgrade Program',
+    client: 'Enterprise Retail Client',
+    role: 'Senior Technical Consultant',
+    tech: ['S/4HANA', 'Code Remediation', 'RAP', 'CDS', 'ATC', 'AMDP'],
+    contributions: [
+      'Performed code remediation for 500+ custom Z-objects',
+      'Developed new CDS views and RAP artifacts for S/4HANA data models',
+      'Resolved SPDD/SPAU dictionary and repository conflicts',
+      'Migrated classical ABAP reports to CDS + AMDP patterns',
+      'Reduced report execution time by 60% through HANA pushdown',
+    ],
+  },
+  {
+    name: 'Unicode Migration & ECC Upgrade',
+    client: 'Pharmaceutical Client',
+    role: 'Technical Consultant',
+    tech: ['Unicode', 'ECC Upgrade', 'ABAP', 'SPDD', 'SPAU'],
+    contributions: [
+      'Executed Unicode conversion with zero data loss',
+      'Fixed syntax errors, encoding issues, and interface incompatibilities',
+      'Validated custom code for Unicode compliance',
+      'Coordinated regression testing across all modules',
+    ],
+  },
+  {
+    name: 'HR WebDynpro Application',
+    client: 'Large Enterprise Client',
+    role: 'Technical Lead',
+    tech: ['WebDynpro ABAP', 'DMS', 'BAPI', 'HR Module'],
+    contributions: [
+      'Developed WebDynpro ABAP applications for HR self-service',
+      'Integrated SAP DMS for employee document management',
+      'Built complex BAPI integrations for personnel actions',
+      'Implemented role-based access control for HR data',
+    ],
+  },
+  {
+    name: 'OData-based HR Fiori Apps',
+    client: 'Enterprise Client',
+    role: 'Technical Consultant',
+    tech: ['OData', 'SEGW', 'Fiori', 'HR Module', 'Gateway'],
+    contributions: [
+      'Designed and published OData services for SAP Fiori HR apps',
+      'Implemented CRUD operations with proper error handling',
+      'Optimized service response times through selective data fetching',
+      'Configured SAP Gateway for service registration and maintenance',
+    ],
+  },
+];
+---
+
+<BaseLayout title="Projects" description="Key projects delivered by Dhaval Nandu across SAP ECC and S/4HANA landscapes.">
+  <Header />
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Projects</h1>
+      <p>Selected engagements demonstrating technical depth and delivery leadership.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="projects-grid">
+        {projects.map((project) => (
+          <div class="project-card card">
+            <h3>{project.name}</h3>
+            <p class="project-client">{project.client}</p>
+            <span class="project-role">{project.role}</span>
+            <div class="project-tech">
+              {project.tech.map((t) => (
+                <span class="tag">{t}</span>
+              ))}
+            </div>
+            <div class="project-contributions">
+              <ul>
+                {project.contributions.map((c) => (
+                  <li>{c}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

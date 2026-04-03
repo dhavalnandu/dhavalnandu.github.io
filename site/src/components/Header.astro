@@ -1,0 +1,42 @@
+---
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/about/', label: 'About' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/projects/', label: 'Projects' },
+  { href: '/connect/', label: 'Connect' },
+];
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="site-logo">DN</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" id="navToggle">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6" />
+        <line x1="3" y1="12" x2="21" y2="12" />
+        <line x1="3" y1="18" x2="21" y2="18" />
+      </svg>
+    </button>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        {navItems.map((item) => {
+          const isActive = item.href === currentPath || (item.href !== '/' && currentPath.startsWith(item.href));
+          return (
+            <li>
+              <a href={item.href} class={isActive ? 'active' : ''}>{item.label}</a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  document.getElementById('navToggle')?.addEventListener('click', () => {
+    document.getElementById('navLinks')?.classList.toggle('open');
+  });
+</script>

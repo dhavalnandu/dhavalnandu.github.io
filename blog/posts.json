@@ -1,0 +1,23 @@
+[
+  {
+    "slug": "rap-vs-classical-abap",
+    "title": "RAP vs Classical ABAP – Practical Comparison",
+    "date": "2026-03-15",
+    "excerpt": "A hands-on comparison of the RESTful Application Programming Model versus classical ABAP development, covering when and why to use each approach.",
+    "tags": ["SAP", "ABAP", "RAP", "S4HANA"]
+  },
+  {
+    "slug": "cds-table-functions-amdp",
+    "title": "When to Use CDS Table Functions with AMDP",
+    "date": "2026-02-28",
+    "excerpt": "Understanding the sweet spot for combining CDS Table Functions with AMDP methods for complex HANA-side logic that can't be expressed in pure CDS.",
+    "tags": ["SAP", "CDS", "AMDP", "S4HANA", "Performance"]
+  },
+  {
+    "slug": "performance-tuning-s4hana",
+    "title": "Performance Tuning Techniques in S/4HANA",
+    "date": "2026-01-20",
+    "excerpt": "Practical performance optimization strategies for S/4HANA systems, including HANA pushdown, CDS annotations, and code remediation patterns.",
+    "tags": ["SAP", "S4HANA", "Performance", "ABAP", "CDS"]
+  }
+]

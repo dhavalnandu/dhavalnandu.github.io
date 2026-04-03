@@ -1,0 +1,37 @@
+---
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL } from '../consts';
+
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+}
+
+const { title, description = SITE_DESCRIPTION, canonical } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical ?? SITE_URL + Astro.url.pathname} />
+    <meta name="robots" content="index, follow" />
+    <title>{title} | {SITE_TITLE}</title>
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={SITE_URL + Astro.url.pathname} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style is:global>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    </style>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

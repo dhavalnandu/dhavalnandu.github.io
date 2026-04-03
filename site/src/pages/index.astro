@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { LINKEDIN_URL } from '../consts';
+---
+
+<BaseLayout title="Home" description="Dhaval Nandu - Senior SAP Technical Consultant | ABAP | S/4HANA | RAP | CDS | AMDP">
+  <Header />
+
+  <section class="hero">
+    <div class="container">
+      <span class="hero-badge">Open to Opportunities</span>
+      <h1>Dhaval <span class="hero-title-accent">Nandu</span></h1>
+      <p class="hero-subtitle">
+        Senior SAP Technical Consultant with 12+ years delivering enterprise-grade solutions across SAP ECC and S/4HANA. 
+        Specializing in RAP, CDS, AMDP, and performance optimization.
+      </p>
+      <div class="btn-group">
+        <a href="/Dhaval_Nandu_Resume.pdf" class="btn btn-white" download>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          View Resume
+        </a>
+        <a href={LINKEDIN_URL} class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.3);" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          Connect on LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Key Expertise</h2>
+      <p class="section-subtitle">Technologies and domains I work with daily.</p>
+      <div class="expertise-grid">
+        <div class="expertise-card">
+          <h3>Core ABAP &amp; OO ABAP</h3>
+          <p>Reports, interfaces, enhancements, forms, workflows, module pool, BAdIs, user exits.</p>
+        </div>
+        <div class="expertise-card">
+          <h3>RAP &amp; CDS Views</h3>
+          <p>RESTful ABAP Programming Model, managed/unmanaged scenarios, behavior definitions, projections.</p>
+        </div>
+        <div class="expertise-card">
+          <h3>AMDP &amp; HANA Pushdown</h3>
+          <p>ABAP Managed Database Procedures, CDS table functions, code pushdown for performance.</p>
+        </div>
+        <div class="expertise-card">
+          <h3>S/4HANA Upgrades</h3>
+          <p>Code remediation, custom code migration, SPDD/SPAU, adaptation to new data models.</p>
+        </div>
+        <div class="expertise-card">
+          <h3>Integrations</h3>
+          <p>OData services, IDocs, RFCs, SOAP/REST proxies, PI/PO middleware.</p>
+        </div>
+        <div class="expertise-card">
+          <h3>Agile &amp; Leadership</h3>
+          <p>Scrum delivery, code reviews, mentoring, technical design, stakeholder management.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <h2 class="section-title">Featured Programs</h2>
+      <p class="section-subtitle">Select engagements that demonstrate breadth and depth.</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-date">Recent</span>
+          <h3 class="timeline-title">International Supply Chain (INTLSCP)</h3>
+          <p class="timeline-company">Team Lead</p>
+          <div class="timeline-desc">
+            <ul>
+              <li>Led end-to-end technical delivery for a global supply chain platform</li>
+              <li>Designed RAP-based OData services for real-time inventory and logistics</li>
+              <li>Coordinated cross-functional team across multiple time zones</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Recent</span>
+          <h3 class="timeline-title">S/4HANA Upgrade Program</h3>
+          <p class="timeline-company">Senior Technical Consultant</p>
+          <div class="timeline-desc">
+            <ul>
+              <li>Performed code remediation for 500+ custom objects</li>
+              <li>Built CDS views and RAP artifacts for new S/4HANA data models</li>
+              <li>Resolved SPDD/SPAU conflicts and regression issues</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Previous</span>
+          <h3 class="timeline-title">HR Systems Modernization</h3>
+          <p class="timeline-company">Technical Lead</p>
+          <div class="timeline-desc">
+            <ul>
+              <li>Developed WebDynpro ABAP applications for HR self-service</li>
+              <li>Built OData services for SAP Fiori HR apps</li>
+              <li>Integrated DMS (Document Management System) for employee records</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
