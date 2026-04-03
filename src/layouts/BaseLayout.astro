@@ -1,5 +1,7 @@
 ---
 import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL } from '../consts';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -30,6 +32,8 @@ const { title, description = SITE_DESCRIPTION, canonical } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body>
+    <Header />
     <slot />
+    <Footer />
   </body>
 </html>
