@@ -100,7 +100,7 @@ Edit `src/consts.ts`:
 export const SITE_TITLE = 'Dhaval Nandu';
 export const SITE_DESCRIPTION = '...';
 export const SITE_URL = 'https://dhavalnandu.github.io';
-export const LINKEDIN_URL = 'https://in.linkedin.com/dhaval-nandu';
+export const LINKEDIN_URL = 'https://www.linkedin.com/in/dhaval-nandu/';
 export const EMAIL = 'dhavalknandu@gmail.com';
 ```
 
