@@ -1,5 +1,6 @@
 ---
 import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL } from '../consts';
+import '../styles/global.css';
 
 interface Props {
   title: string;
@@ -27,9 +28,6 @@ const { title, description = SITE_DESCRIPTION, canonical } = Astro.props;
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <style is:global>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-    </style>
   </head>
   <body>
     <slot />
