@@ -1,227 +1,209 @@
-# Dhaval Nandu – SAP Technical Consultant Portfolio
+# Dhaval Nandu – Portfolio Website
 
-A clean, fast, SEO-friendly personal portfolio website for a Senior SAP Technical Consultant. Built with plain HTML, CSS, and JavaScript — no build step, no dependencies, zero overhead.
+Personal portfolio and technical blog for a Senior SAP Technical Consultant. Built with [Astro](https://astro.build), deployed on GitHub Pages.
 
-**Live URL:** `https://dhavalnandu.github.io`
+**Live site:** https://dhavalnandu.github.io
 
----
+## Tech Stack
 
-## Features
-
-- **Zero dependencies** – No frameworks, no build tools, no npm packages
-- **Blazing fast** – Pure static HTML/CSS/JS, loads in milliseconds
-- **Mobile responsive** – Works on all screen sizes
-- **SEO optimized** – Meta tags, Open Graph, sitemap.xml, robots.txt
-- **Markdown blog** – Write posts in Markdown, rendered client-side
-- **Accessible** – Semantic HTML, ARIA labels, keyboard navigation
-- **GitHub Pages ready** – Push and deploy, nothing else needed
-
----
+- **Astro 4** – Static site generation, zero JS by default
+- **Markdown** – Blog posts via Astro Content Collections
+- **Custom CSS** – No framework, fast and minimal
+- **Shiki** – Syntax-highlighted code blocks in blog posts
+- **Sitemap** – Auto-generated for SEO
 
 ## Project Structure
 
 ```
-Portfolio/
-├── index.html                  # Home page
-├── about/
-│   └── index.html              # About / Experience page
-├── blog/
-│   ├── index.html              # Blog index (with search & tag filter)
-│   ├── posts.json              # Blog post metadata (add new posts here)
-│   ├── rap-vs-classical-abap/
-│   │   └── index.html          # Individual blog post page
-│   ├── rap-vs-classical-abap.md # Blog post Markdown source
-│   ├── cds-table-functions-amdp/
-│   │   └── index.html
-│   ├── cds-table-functions-amdp.md
-│   ├── performance-tuning-s4hana/
-│   │   └── index.html
-│   └── performance-tuning-s4hana.md
-├── projects/
-│   └── index.html              # Projects page
-├── connect/
-│   └── index.html              # Contact / Connect page
-├── css/
-│   └── styles.css              # All styles (custom properties, responsive)
-├── js/
-│   └── main.js                 # Blog loader, Markdown parser, utilities
-├── assets/
-│   └── resume.pdf              # Resume PDF (add your own)
-├── includes/
-│   ├── header.html             # Header HTML snippet (reference)
-│   └── footer.html             # Footer HTML snippet (reference)
-├── robots.txt                  # SEO: allow all crawlers
-├── sitemap.xml                 # SEO: XML sitemap
-└── README.md                   # This file
+├── src/
+│   ├── components/        # Reusable UI components
+│   │   ├── Header.astro   # Site navigation
+│   │   └── Footer.astro   # Site footer
+│   ├── content/
+│   │   ├── blog/          # Markdown blog posts
+│   │   └── config.ts      # Content collection schema
+│   ├── layouts/
+│   │   └── BaseLayout.astro  # HTML shell with SEO meta
+│   ├── pages/
+│   │   ├── index.astro       # Home
+│   │   ├── about/index.astro # About & Experience
+│   │   ├── blog/
+│   │   │   ├── index.astro       # Blog index with search/filter
+│   │   │   └── [...slug].astro   # Individual blog post
+│   │   ├── projects/index.astro  # Projects
+│   │   └── connect/index.astro   # Contact
+│   ├── styles/
+│   │   └── global.css       # All styles
+│   └── consts.ts            # Site-wide constants
+├── public/
+│   ├── favicon.svg
+│   ├── robots.txt
+│   └── Dhaval_Nandu_Resume.pdf  # Add your resume here
+├── astro.config.mjs
+├── package.json
+└── tsconfig.json
 ```
 
----
+## Getting Started
 
-## How to Add a New Blog Post
+### Prerequisites
 
-### Step 1: Create the Markdown file
+- Node.js 18.20+ or 20.3+
+- npm
 
-Create a new `.md` file in the `blog/` directory:
+### Install & Run
 
+```bash
+npm install
+npm run dev       # Start dev server at http://localhost:4321
+npm run build     # Production build → dist/
+npm run preview   # Preview production build locally
 ```
-blog/your-post-slug.md
-```
 
-Frontmatter format (required):
+## Adding Blog Posts
+
+1. Create a new `.md` file in `src/content/blog/`
+2. Use this frontmatter template:
 
 ```markdown
 ---
 title: "Your Post Title"
-date: 2026-04-03
+date: 2025-01-15
+description: "A brief description of the post for the blog index."
 tags: ["SAP", "ABAP", "RAP"]
-excerpt: "A brief description of the post (1-2 sentences)."
 ---
 
-# Your Post Title
+## Your Content Here
 
-Write your content here in Markdown...
+Write your post in Markdown. Code blocks are auto-highlighted:
+
+\`\`\`abap
+DATA lv_text TYPE string VALUE 'Hello'.
+\`\`\`
 ```
 
-### Step 2: Create the post page directory
+### Supported Tags
 
-```
-blog/your-post-slug/index.html
-```
+Use any combination of: `SAP`, `ABAP`, `RAP`, `CDS`, `AMDP`, `Performance`, `S4HANA`, `OData`, `Integration`
 
-Copy any existing post's `index.html` (e.g., `blog/rap-vs-classical-abap/index.html`) and update:
-- `<title>` tag
-- `meta description`
-- `canonical` URL
-- Post title in `<h1>`
-- Date in `<time>`
-- Tags in the tags div
+### Draft Posts
 
-The page will automatically load and render the Markdown content from `blog/your-post-slug.md` via the `loadBlogPost()` function in `main.js`.
+Add `draft: true` to frontmatter to hide a post from the blog index while keeping the file.
 
-### Step 3: Add to posts.json
+## Customizing Content
 
-Add an entry to `blog/posts.json`:
+### Updating Personal Info
 
-```json
-{
-  "slug": "your-post-slug",
-  "title": "Your Post Title",
-  "date": "2026-04-03",
-  "excerpt": "A brief description.",
-  "tags": ["SAP", "ABAP", "RAP"]
-}
+Edit `src/consts.ts`:
+
+```typescript
+export const SITE_TITLE = 'Dhaval Nandu';
+export const SITE_DESCRIPTION = '...';
+export const SITE_URL = 'https://dhavalnandu.github.io';
+export const LINKEDIN_URL = 'https://in.linkedin.com/dhaval-nandu';
+export const EMAIL = 'dhavalknandu@gmail.com';
 ```
 
-### Step 4: Update sitemap.xml
+### Adding Projects
 
-Add a new `<url>` entry to `sitemap.xml` for the new post.
+Edit the `projects` array in `src/pages/projects/index.astro`.
 
----
+### Adding Expertise Cards
 
-## How to Deploy to GitHub Pages
-
-### Option A: Using GitHub UI (Simplest)
-
-1. Create a new GitHub repository named `dhavalnandu.github.io`
-2. Push all files to the `main` branch
-3. Go to **Settings > Pages**
-4. Set **Source** to `Deploy from a branch`
-5. Select branch `main` and folder `/ (root)`
-6. Click **Save**
-7. Your site will be live at `https://dhavalnandu.github.io`
-
-### Option B: Using GitHub CLI
-
-```bash
-# Initialize git (if not already done)
-git init
-git add .
-git commit -m "Initial commit: portfolio site"
-
-# Create and push to GitHub
-gh repo create dhavalnandu/dhavalnandu.github.io --public --source=. --remote=origin --push
-
-# Enable GitHub Pages
-gh api repos/dhavalnandu/dhavalnandu.github.io/pages \
-  --method POST \
-  --field source='{"branch":"main","path":"/"}'
-```
-
-### Option C: Deploy to a subdirectory
-
-If using a repository name other than `username.github.io`:
-
-1. Update all URLs in HTML files to include the repo name prefix:
-   - Change `/css/styles.css` to `/repo-name/css/styles.css`
-   - Change `/blog/` to `/repo-name/blog/`
-   - etc.
-
-2. Or set a `<base>` tag in each HTML `<head>`:
-   ```html
-   <base href="/repo-name/">
-   ```
-
----
-
-## Customization
-
-### Colors
-
-Edit CSS custom properties in `css/styles.css`:
-
-```css
-:root {
-  --accent: #3b82f6;        /* Primary accent color */
-  --accent-hover: #2563eb;  /* Hover state */
-  --navy-900: #0f172a;      /* Darkest text */
-  --navy-800: #1e293b;      /* Body text */
-  /* ... more variables ... */
-}
-```
-
-### Fonts
-
-The site uses **Inter** (body) and **JetBrains Mono** (code). Change in the Google Fonts link in each HTML file and update the CSS variables.
+Edit the `expertise-grid` section in `src/pages/index.astro` or `src/pages/about/index.astro`.
 
 ### Resume PDF
 
-Place your resume at `assets/resume.pdf`. Update the link in `index.html` and `about/index.html`.
+Place your resume as `public/Dhaval_Nandu_Resume.pdf`. The "View Resume" button links to this file.
 
-### Contact Email
+## Deploying to GitHub Pages
 
-Update the email address in:
-- `connect/index.html` (contact card + mailto handler)
-- `js/main.js` (`handleContactForm` function)
+### Option 1: GitHub Actions (Recommended)
 
----
+1. Push this repo to GitHub as `yourusername/dhavalnandu.github.io`
 
-## Blog Markdown Support
+2. Create `.github/workflows/deploy.yml`:
 
-The built-in Markdown parser supports:
+```yaml
+name: Deploy to GitHub Pages
 
-- Headers (`#`, `##`, `###`)
-- Bold (`**text**`), Italic (`*text*`)
-- Code blocks (```` ```language ````)
-- Inline code (`` `code` ``)
-- Unordered lists (`- item`)
-- Ordered lists (`1. item`)
-- Blockquotes (`> text`)
-- Tables (pipe-separated)
-- Links (`[text](url)`)
-- Horizontal rules (`---`)
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
 
----
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
-## Performance
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-- **No external JavaScript frameworks** – ~8KB total JS
-- **Single CSS file** – ~12KB, no unused styles
-- **No images required** – SVG icons are inline
-- **Google Fonts** – Only 2 font families, preconnected
-- **Lighthouse targets**: 95+ on all metrics
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
 
----
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+```
+
+3. Go to **Settings > Pages** in your repo
+4. Set source to **GitHub Actions**
+5. Push to `main` – the site deploys automatically
+
+### Option 2: Manual Deploy
+
+```bash
+npm run build
+npx gh-pages -d dist
+```
+
+### Custom Domain
+
+1. Add a `CNAME` file in `public/` with your domain:
+   ```
+   dhavalnandu.com
+   ```
+
+2. Update `site` in `astro.config.mjs`:
+   ```js
+   site: 'https://dhavalnandu.com',
+   ```
+
+3. Configure DNS with your registrar (CNAME or A records).
+
+## SEO
+
+- Sitemap auto-generated at `/sitemap-index.xml`
+- `robots.txt` included
+- Open Graph and Twitter Card meta tags on every page
+- Canonical URLs set per page
 
 ## License
 
-MIT – Use freely for your own portfolio.
+MIT
