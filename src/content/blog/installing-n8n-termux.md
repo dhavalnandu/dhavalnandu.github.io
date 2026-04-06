@@ -1,6 +1,6 @@
 ---
 title: "Installing n8n on Termux and Accessing from Windows"
-date: 2025-01-15
+date: 2026-04-06
 description: "A step-by-step guide to installing n8n on Android using Termux and accessing it from a Windows machine on the same local network."
 tags: ["n8n", "termux", "android", "automation", "tutorial"]
 ---
