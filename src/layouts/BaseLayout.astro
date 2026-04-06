@@ -35,5 +35,16 @@ const { title, description = SITE_DESCRIPTION, canonical } = Astro.props;
     <Header />
     <slot />
     <Footer />
+
+    <div id="resumeModal" class="modal" style="display:none;">
+      <div class="modal-content">
+        <span class="modal-close" onclick="document.getElementById('resumeModal').style.display='none'">&times;</span>
+        <h2 style="margin-bottom:16px;font-size:1.25rem;font-weight:600;">Dhaval Nandu - Resume</h2>
+        <iframe src="/Dhaval_Nandu_Resume.pdf" width="100%" height="500px" style="border:none;border-radius:8px;"></iframe>
+        <div style="margin-top:16px;text-align:center;">
+          <a href="/Dhaval_Nandu_Resume.pdf" class="btn btn-primary" download>Download PDF</a>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
