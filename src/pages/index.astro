@@ -7,7 +7,6 @@ import { LINKEDIN_URL } from '../consts';
 
   <section class="hero">
     <div class="container">
-      <span class="hero-badge">Open to Opportunities</span>
       <h1>Dhaval <span class="hero-title-accent">Nandu</span></h1>
       <p class="hero-subtitle">
         Senior SAP Technical Consultant with 12+ years delivering enterprise-grade solutions across SAP ECC and S/4HANA. 
@@ -27,33 +26,41 @@ import { LINKEDIN_URL } from '../consts';
   </section>
 
   <section class="section">
-    <div class="container">
+    <div class="container container--narrow">
+      <h2 class="section-title">Professional Summary</h2>
+      <p style="color: var(--text-muted); line-height: 1.8; margin-bottom: 48px; font-size: 1.0625rem;">
+        Senior SAP Technical Consultant with over 12 years of hands-on experience across SAP ECC and S/4HANA environments. 
+        Proven track record in leading complex delivery programs, performing code remediation during upgrades, 
+        and building modern ABAP artifacts using RAP, CDS, and AMDP. Deep expertise in performance optimization 
+        through HANA pushdown techniques and a strong focus on clean, maintainable code.
+      </p>
+
       <h2 class="section-title">Key Expertise</h2>
       <p class="section-subtitle">Technologies and domains I work with daily.</p>
       <div class="expertise-grid">
         <div class="expertise-card">
           <h3>Core ABAP &amp; OO ABAP</h3>
-          <p>Reports, interfaces, enhancements, forms, workflows, module pool, BAdIs, user exits.</p>
+          <p>Reports, ALV, Smart Forms, Adobe Forms, BAPIs, BAdIs, User Exits, Enhancement Framework, Module Pool, Dialog Programming</p>
         </div>
         <div class="expertise-card">
-          <h3>RAP &amp; CDS Views</h3>
-          <p>RESTful ABAP Programming Model, managed/unmanaged scenarios, behavior definitions, projections.</p>
+          <h3>RAP &amp; CDS</h3>
+          <p>RESTful ABAP Programming Model, managed/unmanaged scenarios, behavior definitions, projection views, metadata extensions</p>
         </div>
         <div class="expertise-card">
           <h3>AMDP &amp; HANA Pushdown</h3>
-          <p>ABAP Managed Database Procedures, CDS table functions, code pushdown for performance.</p>
+          <p>ABAP Managed Database Procedures, CDS table functions, SQLScript, code-to-data paradigm, performance tuning</p>
         </div>
         <div class="expertise-card">
           <h3>S/4HANA Upgrades</h3>
-          <p>Code remediation, custom code migration, SPDD/SPAU, adaptation to new data models.</p>
+          <p>Custom code remediation, ATC checks, SPDD/SPAU, data model adaptation, simplification item resolution</p>
         </div>
         <div class="expertise-card">
           <h3>Integrations</h3>
-          <p>OData services, IDocs, RFCs, SOAP/REST proxies, PI/PO middleware.</p>
+          <p>OData services (SEGW, RAP), IDocs, RFCs, SOAP/REST proxies, PI/PO, CPI, EDI</p>
         </div>
         <div class="expertise-card">
           <h3>Agile &amp; Leadership</h3>
-          <p>Scrum delivery, code reviews, mentoring, technical design, stakeholder management.</p>
+          <p>Scrum/Agile delivery, code reviews, technical design, mentoring, stakeholder management, estimation</p>
         </div>
       </div>
     </div>
@@ -61,18 +68,20 @@ import { LINKEDIN_URL } from '../consts';
 
   <section class="section section--alt">
     <div class="container">
-      <h2 class="section-title">Featured Programs</h2>
+      <h2 class="section-title">Major Programs</h2>
       <p class="section-subtitle">Select engagements that demonstrate breadth and depth.</p>
       <div class="timeline">
         <div class="timeline-item">
           <span class="timeline-date">Recent</span>
-          <h3 class="timeline-title">International Supply Chain (INTLSCP)</h3>
+          <h3 class="timeline-title">International Supply Chain Platform (INTLSCP)</h3>
           <p class="timeline-company">Team Lead</p>
           <div class="timeline-desc">
             <ul>
-              <li>Led end-to-end technical delivery for a global supply chain platform</li>
-              <li>Designed RAP-based OData services for real-time inventory and logistics</li>
-              <li>Coordinated cross-functional team across multiple time zones</li>
+              <li>Led technical delivery for a global supply chain management platform</li>
+              <li>Designed and implemented RAP-based OData services for real-time inventory tracking</li>
+              <li>Built CDS views with complex joins, aggregations, and annotations</li>
+              <li>Coordinated a cross-functional team across multiple geographies</li>
+              <li>Conducted code reviews and ensured adherence to ABAP clean code standards</li>
             </ul>
           </div>
         </div>
@@ -82,21 +91,47 @@ import { LINKEDIN_URL } from '../consts';
           <p class="timeline-company">Senior Technical Consultant</p>
           <div class="timeline-desc">
             <ul>
-              <li>Performed code remediation for 500+ custom objects</li>
-              <li>Built CDS views and RAP artifacts for new S/4HANA data models</li>
-              <li>Resolved SPDD/SPAU conflicts and regression issues</li>
+              <li>Performed code remediation for 500+ custom Z-objects using ATC and custom checks</li>
+              <li>Developed new CDS views and RAP artifacts aligned with S/4HANA data models</li>
+              <li>Resolved SPDD/SPAU dictionary and repository conflicts</li>
+              <li>Migrated classical ABAP reports to modern CDS + AMDP patterns</li>
+              <li>Reduced report execution time by 60% through HANA pushdown optimization</li>
             </ul>
           </div>
         </div>
         <div class="timeline-item">
           <span class="timeline-date">Previous</span>
-          <h3 class="timeline-title">HR Systems Modernization</h3>
+          <h3 class="timeline-title">Unicode Migration &amp; ECC Upgrade</h3>
+          <p class="timeline-company">Technical Consultant</p>
+          <div class="timeline-desc">
+            <ul>
+              <li>Executed Unicode conversion and ECC version upgrade with zero data loss</li>
+              <li>Fixed syntax errors, character encoding issues, and interface incompatibilities</li>
+              <li>Validated and corrected custom code for Unicode compliance</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Previous</span>
+          <h3 class="timeline-title">HR WebDynpro Application</h3>
           <p class="timeline-company">Technical Lead</p>
           <div class="timeline-desc">
             <ul>
-              <li>Developed WebDynpro ABAP applications for HR self-service</li>
-              <li>Built OData services for SAP Fiori HR apps</li>
-              <li>Integrated DMS (Document Management System) for employee records</li>
+              <li>Developed WebDynpro ABAP applications for HR employee self-service</li>
+              <li>Integrated with SAP DMS for document attachment and retrieval</li>
+              <li>Built complex BAPI integrations for personnel actions</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Previous</span>
+          <h3 class="timeline-title">OData-based HR Fiori Apps</h3>
+          <p class="timeline-company">Technical Consultant</p>
+          <div class="timeline-desc">
+            <ul>
+              <li>Designed and published OData services for SAP Fiori HR applications</li>
+              <li>Implemented CRUD operations with proper error handling and authorization</li>
+              <li>Optimized service response times through selective data fetching</li>
             </ul>
           </div>
         </div>
